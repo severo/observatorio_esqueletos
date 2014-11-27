@@ -1,25 +1,55 @@
-<section class="page">
-	<!--header id="header"><INCLURE{fond=header/#ENV{type-page},env} /></header-->
-
-	<!--nav id="menu">
-		<INCLURE{fond=inclure/nav} />
-	</nav-->
-
-	<section class="container" id="container" role="main">
-		<section class="content" id="content">
-			<INCLURE{fond=content/#ENV{type-page},env} />
-		</section>
+<body>
+	<section class="page">
+		[(#REM) <!-- Navigación de acceso rápido: anclas, búsqueda, plano, contacto --> ]
+		[<nav class="access" id="access">
+			<div class="container">
+				(#INCLURE{fond=inclure/access,env})
+			</div>
+		</nav>]
+		
+		[(#REM) <!-- Encabezado general del sitio --> ]
+		<header class="header" id="header">
+			<div class="container">
+				<INCLURE{fond=header/#ENV{type-page},env} />
+			</div>
+		</header>
+		
+		[(#REM) <!-- Navegación principal del sitio --> ]
+		[<nav class="firstnav" id="firstnav" role="navigation">
+			<div class="container">
+				(#INCLURE{fond=inclure/firstnav,env})
+			</div>
+		</nav>]
+		
+		[(#REM) <!-- Camino jerárquico --> ]
+		<nav class="breadcrumb" id="breadcrumb">
+			<div class="container">
+				<INCLURE{fond=breadcrumb/#ENV{type-page},env} />
+			</div>
+		</nav>
+		
+		[(#REM) <!-- Contenido central del sitio = contenido principal + navegaciones segundarias --> ]
+		<div class="central">
+			<div class="container" id="container">
+				<div class="wrapper" id="wrapper">
+					<section class="content" role="main" id="content">
+						<INCLURE{fond=content/#ENV{type-page},env} />
+					</section>
+				</div>
+				<aside class="aside secondary" id="aside">
+					<INCLURE{fond=aside/#ENV{type-page},env} />
+				</aside>
+				<aside class="extra secondary" id="extra">
+					<INCLURE{fond=extra/#ENV{type-page},env} />
+				</aside>
+			</div>
+		</div>
+		
+		[(#REM) <!-- Pie de página --> ]
+		<footer class="footer" id="footer">
+			<div class="container">
+				<INCLURE{fond=footer/#ENV{type-page},env} />
+			</div>
+		</footer>
 	</section>
-
-	<!--aside id="aside">
-		<INCLURE{fond=aside/#ENV{type-page},env}>
-	</aside-->
-
-	<!--footer id="footer">
-		<INCLURE{fond=footer/#ENV{type-page},env} />
-	</footer-->
-</section>
-
-
-
-
+</body>
