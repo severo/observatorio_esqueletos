@@ -1,0 +1,537 @@
+/* bloquer les largeurs maxi */
+
+article > *:not(.fullwidth) > *:not(.fullwidth) {
+	margin-left: 3rem;
+	max-width: 42rem;
+	padding-right: 2rem;
+}
+article > section.texte p:not(.fullwidth) {
+	max-width: 35rem;
+}
+article .notes p:not(.fullwidth) {
+	max-width: 30rem;
+}
+
+.surtitre, .surtitre *,
+.fullwidth, .fullwidth span, .fullwidth figure, .fullwidth img {
+	margin-left: 0;
+	margin-right: 0;
+	max-width: 100%;
+	width: 100%;
+}
+
+img { max-width: 100% }
+
+/* effacer les blocs qui nous embetent et tout caler en haut */
+
+#header, #nav, #hierarchie {display:none}
+
+.surtitre figure { margin-top: 0 }
+html {
+background-color: #ddd;
+}
+body {margin: 0; width: 100%; max-width: 3000px; background-color: white; }
+
+.surtitre figure * { width: 100%!important; height: auto; }
+
+
+/* base font size */
+html { font-size: 145.1%; }
+
+body { line-height: 1.43 }
+
+h1,.h1 {
+	font-size: 3.6em !important;
+	line-height: 0.9em !important;
+	margin: 0.5em 3rem 0.3em;
+}
+
+
+/* responsive font size and margins */
+@media screen and (max-width: 1299px) {
+	html { font-size: 135.1%; }
+}
+
+@media screen and (max-width: 959px) {
+	html { font-size: 125.1%; }
+	/* ecran etroit : les docs ne flottent plus */
+	.spip_documents_right, .spip_documents_left {
+		float: none !important;
+		margin-left: auto;
+		margin-right: auto;
+	}
+	article > *:not(.fullwidth) > *:not(.fullwidth) {
+		margin-left: 1rem;
+		padding-right: 1rem;
+	}
+	body { line-height: 1.3; }
+}
+@media screen and (max-width: 599px) {
+	html { font-size: 110.1%; }
+	.iflarge {display: none !important}
+}
+@media screen and (min-width: 600px) {
+	strong,b { color: #444; }
+	.inverted strong, .inverted b { color: #fff!important; }
+	p { /*text-align: justify;*/ }
+	.ifsmall {display: none !important}
+}
+
+/* ecrans geants */
+@media screen and (min-width: 1500px) {
+	html { font-size: 180.1%; }
+}
+@media screen and (min-width: 2200px) {
+	html { font-size: 260.1%; }
+}
+
+
+/* header */
+header.cartouche {
+	padding-left: 3rem;
+	padding-right: 2rem;
+}
+.info-publi {
+	text-align:right;
+}
+
+
+/* paragraphs */
+
+.container p {  }
+p.in:first-line, h2 + p:not(.off):first-line { font-variant:small-caps }
+
+/* class = tight pour resserrer les paragraphes */
+.tight p {
+  text-indent: 0;
+  margin-top:0;
+  margin-bottom: 0.6em; }
+.tight p + p:not(.section) {
+  text-indent: 1.8em;
+  margin-top: -0.6em }
+
+/* a l'inverse avec p.section, on met de l'air entre les paragraphes */
+.tight p + p.section {
+  text-indent: 0;
+  margin-top: 1em; }
+
+
+.logo {
+position: fixed;
+bottom: 10px;
+right: 10px;
+z-index: 500;
+padding:0;
+border:0;
+}
+
+
+/* chapo */
+.chapo {
+  font-weight: 900;
+  color: #444;
+  }
+.inverted .chapo {
+  color: #fff;
+}
+.chapo p {
+  text-align: justify;
+  max-width: 42em !important;
+}
+
+h2, .h2, h3, .h3  {margin-top: 1.5em; margin-bottom: 0.3em;}
+h4, .h4, h5, .h5  {margin-top: 0.7em; margin-bottom: 0.2em;}
+h6, .h6  {margin-top: 0.4em; margin-bottom: 0.1em;}
+
+
+.ui.menu .item, .ui.input input {
+font-family: nitti-grotesk, "Gill Sans", "Lucida Grande", "Verdana", sans-serif;
+}
+
+/* interactions parfois difficiles avec semantic-ui */
+p + .box {  margin-top: 3em; }
+.box { padding: 0.6rem 3em;}
+.box p { margin-bottom: 0 }
+blockquote { border: 0; }
+.center { margin-left: auto!important; margin-right: auto!important}
+
+.texte { margin-top:1.3em; }
+.bando { margin:auto; } /* petite image en bandeau ? centrer */
+
+.notes { font-size: 0.85em; color: #666; }
+
+#appel>div {
+max-width: 33em;
+padding-left: 3em;
+padding-right: 3em;
+}
+
+/* fixes tinytypo for SPIP */
+.formulaire_spip ul,
+.comments-items { list-style: none; margin: 0; }
+
+/* fixes for tinytypo */
+.invisible { display: none; }
+blockquote { z-index: 0; }
+.box_modalbox,
+.box_modalbox * { -webkit-box-sizing: content-box; -moz-box-sizing: content-box; box-sizing: content-box; }
+
+/* https://github.com/Schepp/CSS-Filters-Polyfill */
+.logo img {
+            transition-duration: 0.5s;
+            filter: grayscale(1);
+    -webkit-filter: grayscale(1);
+}
+
+.logo img:hover {
+            transition-duration: 0.5s;
+            filter: none;
+    -webkit-filter: none;
+}
+
+
+
+/* style effects généralisés (pas seulement img) */
+.round {
+  border-radius: 5px;
+}
+.circle {
+  border-radius: 50%;
+}
+.border {
+  padding: 4px;
+  background-color: #fff;
+  border: 1px solid #bbb;
+}
+span.shadow {
+  box-shadow: -1px 2px 5px 1px rgba(0, 0, 0, 0.7), -1px 2px 20px rgba(255, 255, 255, 0.6) inset;
+  display: inline-block;
+  max-width:100%;
+}
+
+
+/* eviter que la lagende ne soit trop large ou trop collee a l'image */
+figcaption {
+	font-size: 0.8em;
+	line-height: 1.3em;
+	margin-top: 0.4em;
+	margin: auto;
+	padding-left: 1rem;
+	padding-right: 1rem;
+}
+.fullwidth figcaption {
+	padding-right: 1rem;
+}
+
+figcaption { color: #888; }
+figcaption .title { color: #333; }
+figcaption .credits { color: #aaa; }
+
+section:after {
+	content: " ";
+	clear: both;
+}
+
+.fullwidth figcaption {
+	margin-left: 15%;
+	margin-right: 2em;
+}
+
+figure.spip_documents figcaption,figure.spip_documents_right figcaption {
+	text-align: right;
+}
+figure.spip_documents_left {
+	text-align: left;
+}
+
+/*
+   toutes les figures doivent avoir une légende qui reste liée à l'image
+   .caption-right a la caption a droite (mais pas en écran étroit)
+*/
+div>figure { margin-top: 0; }
+
+figcaption {}
+figcaption > div > div {
+	margin-right: 1em;
+}
+
+@media (min-width: 960px) {
+	/* par defaut on est aligne à gauche, la legende ne doit pas deborder */
+	figure.spip_documents {
+		// display: table;
+		margin-left: 0;
+		max-width: 100%
+	}
+	figure.spip_documents_right {
+		margin-left: 1.5em;
+	}
+	figure.caption-right {
+		display: block;
+		position: relative;
+	}
+	figure.caption-right:after {
+		content: "\0020";
+		display: block;
+		height: 0;
+		clear: both;
+		visibility: hidden;
+		overflow: hidden;
+	}
+	figure.caption-right > * {
+		float: left;
+	}
+	figure.caption-right > figcaption {
+		display: inline-block;
+		text-align: left;
+		width: 20%;
+		padding-left: 0.8em;
+		margin-left: 0;
+		margin-top: 0;
+	}
+	/* attention: absolute explose avec les legendes qui seraient plus hautes que l'image, car elle ne cree pas de margin-top */
+	figure.caption-right > figcaption > div {
+		position: absolute; 
+		bottom:0;
+		min-width: 12em;
+		max-width: 25%;
+	}
+	figure.caption-right > figcaption > div > div {
+		display: block;
+	}
+}
+
+/* ecran etroit : les docs ne flottent plus (sauf les spip_document_narrow qui font moins de 300px de large) ; les titres sont un peu moins gros */
+@media (max-width: 959px) {
+	.spip_documents_right:not(.spip_document_narrow), .spip_documents_left:not(.spip_document_narrow) {
+		float: none !important;
+		margin-left: auto;
+		margin-right: auto;
+	}
+	figure.spip_documents:not(.spip_document_narrow), figure.spip_documents_right:not(.spip_document_narrow), figure.spip_documents_left:not(.spip_document_narrow) {
+		text-align: left;
+		margin-left: 0;
+	}
+	figure.spip_documents_right:not(.spip_document_narrow) figcaption, figure.spip_documents_left:not(.spip_document_narrow) figcaption {
+		text-align:left;
+		margin-left: 0;
+	}
+
+	h1,.h1 {
+		font-size:2.5em!important;
+	}
+}
+/* en tres etroit plus personne ne flotte */
+@media (max-width: 549px) {
+	.spip_documents_right, .spip_documents_left {
+		float: none !important;
+		margin-left: auto;
+		margin-right: auto;
+	}
+	figure.spip_documents, figure.spip_documents_right, figure.spip_documents_left {
+		text-align: left;
+		margin-left: 0;
+	}
+	figure.spip_documents_right figcaption, figure.spip_documents_left figcaption {
+		text-align:left;
+		margin-left: 0;
+	}
+}
+/* la bio de l'auteur·e */
+.chapo h5 {
+	font-size: 0.8em;
+	font-weight: normal;
+}
+
+
+/* la legende de la colorbox */
+#cboxTitle {
+	font-weight: normal;
+	font-family: "nitti-grotesk", "Lucida Grande", sans-serif;
+	color: #fff;
+	font-size: 0.75rem;
+	padding: 0.25rem 1rem;
+	text-align: left;
+}
+#cboxPrevious, #cboxNext {
+background: none;
+border: none;
+}
+
+
+.notes > div {
+	padding-left: 1em;
+	text-indent: -1em;
+}
+.notes>div>p {
+	margin-bottom: 0.7em;
+}
+
+.ps,.appel {
+	margin-top: 2.5em;
+}
+
+/* small-caps d'orthotypo */
+.caps {
+ font-size: 0.85em;
+}
+
+/* appels de notes */
+footer .notes h2 { display:none }
+.notes .spip_note_ref, .spip_note_ref { display: inline; font-size: 0.5em; position: relative; top: -0.5em; }
+.spip_note_ref a { text-decoration: none; }
+
+
+div#spip-admin.spip-admin-float {
+position: absolute !important;
+font-size: 0.8rem;
+}
+#icone_travaux { display:none; position: absolute !important; opacity: 0.2; }
+
+
+body {position: absolute;
+	left:0;
+} body.pushed {
+    -webkit-transition:left 0.5s;
+    transition:left 0.5s;
+	left:-350px;
+}
+
+/* eviter de coller les crayons juste au bord (effet de bord du 100%) */
+.crayon-html {
+	left:3rem!important;
+}
+.formulaire_crayon .crayon-active {
+	border: 1px dashed #ccc !important;
+}
+
+/* appel a collaboration */
+#appel > div.inverted {
+	background-color: #92100E !important; /* rouge sombre */
+}
+
+/* annuler les coins arrondis de semantic-ui */
+.ui.segment {
+ border-radius: 0 !important;
+}
+
+
+/* quote */
+blockquote.spip {
+    background-color: #ECECE4;
+    border: 0px none;
+    padding: 0.6rem 3em;
+    margin: 2em 0px;
+}
+blockquote.spip:before {
+	content: ''; /* annuler le << de tinytypo */
+}
+/* blockquote (natif HTML) */
+blockquote {
+	max-width: 32em !important;
+}
+blockquote:before {
+left: -22px;
+top: 7px;
+content: "«";
+font-size: 6em;
+}
+
+/* aside class=box (fourni par tinytypo) */
+
+/* listes à puce de base (simple tiret ou -* */
+ul.spip li {
+	list-style-type: square;
+}
+
+/* background sous la cbox */
+#cboxOverlay {
+	background-color: black !important;
+	opacity: 0.7 !important;
+}
+
+/* les liens ! */
+.content a:not(.aimg) {
+text-decoration: none;
+border-bottom: 1px #a11 inset;
+}
+.content a:not(.aimg):hover {
+border-bottom: 3px #a11 inset
+}
+a:link {
+transition: all 0s; /* contre tinytypo */
+}
+a.spip_out:after {
+  content: "\0000a0\279A";
+  font-size: 0.6em;
+  position: relative;
+  bottom: 0.4em;
+}
+
+/* la reponse au formulaire de contact */
+.reponse_formulaire {
+border: solid gray 1px;
+padding: 1em;
+}
+.reponse_formulaire_ok {
+border: solid green 1px;
+}
+
+/* tables de la collection cartographique */
+table.spip {margin-bottom: 1em; font-family: nitti-grotesk; }
+table.spip>thead { font-size: 1.3em; }
+table.spip>tr {}
+table.spip th:first-child, table.spip td:first-child {min-width: 9rem; }
+table.spip tr > * {vertical-align: top; line-height: 1.3em; text-align: left; padding-left: 0.3rem; padding-right: 1rem; padding-bottom: 0.4rem;}
+table.spip tr.row_even td,table.spip tr.row_even th{background:none}
+
+.lien_hash { color: #666; }
+
+/* code informatique */
+code, .code, .spip_code,.spip_cadre{
+ font-family:'andale mono','lucida console',monospace;
+ font-size:0.8em;
+ font-variant: normal;
+}
+
+/* fonts */
+.nitti { font-family: nitti-grotesk; }
+
+/* plan du site */
+.page_plan h3 {display:none}
+.page_rubrique h2 {display:none}
+
+
+/* pied de page ! */
+#footer {
+NOdisplay: none;
+background: none repeat scroll 0% 0% rgba(255, 245, 228, 1);
+color: rgba(57, 56, 56, 1);
+padding-top: 2em;
+padding-bottom: 5em;
+padding-left: 1em;
+padding-right: 1em;
+}
+/* necessaire pour que le pied touche bien par terre */
+section.page:after { content:none }
+
+/* raccourci ---- */
+hr.spip {
+ color: #999;
+ width: 25%;
+ margin-bottom: 1em;
+}
+
+
+@media print {
+ html { font-size:80% !important; }
+ #footer, #container a.logo, nav { display: none; }
+ section.texte p:not(.fullwidth) { max-width: 90% !important; }
+ article > :not(.fullwidth) > :not(.fullwidth) { max-width: 90% !important; }
+ a:link { border-bottom: none !important }
+ a.spip_out:after { content: " (" attr(href) ")";
+   font-size: 0.8em;
+   font-family: sans-serif;
+   position: relative;
+   bottom: 0em;
+ }
+}
