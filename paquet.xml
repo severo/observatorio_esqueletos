@@ -18,5 +18,10 @@
 	<licence lien="http://www.gnu.org/licenses/gpl-3.0.html">GNU/GPL v3</licence>
 	<copyright>2014</copyright>
 
+	<necessite nom="adaptive_images" compatibilite="[1.9.0;]" />
+	<necessite nom="compositions" compatibilite="[3.3.6;]" />
+	<necessite nom="menus" compatibilite="[1.4.6;]" />
+	<necessite nom="pages" compatibilite="[1.0.5;]" />
+	<necessite nom="observatorio" />
 	<necessite nom="zcore" />
 </paquet>
