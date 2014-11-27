@@ -1,0 +1,5 @@
+# TODO
+
+[ ] estructura
+[ ] elementos
+[ ] css
