@@ -1,0 +1,21 @@
+<paquet
+	prefix="observatorio_esqueletos"
+	categorie="squelette"
+	version="0.1.0"
+	etat="dev"
+	compatibilite="[3.0.0;3.0.*]"
+	logo="images/odr-32.png"
+	documentation="https://rednegra.net/proyectos/projects/sitio-observatorio-racismo/wiki/"
+	demonstration="http://www2.rednegra.net/observatoriodelracismo/"
+	developpement="https://gitlab.rednegra.net/severo/observatorio_esqueletos"
+>
+	<nom>Esqueletos del Observatorio del Racismo</nom>
+
+	<auteur lien="http://rednegra.net/cv/">Severo</auteur>
+	<credit lien="https://github.com/visionscarto/squelettes-visionscarto-net">Visions Carto</credit>
+
+	<licence lien="http://www.gnu.org/licenses/gpl-3.0.html">GNU/GPL</licence>
+	<copyright>2014</copyright>
+
+	<necessite nom="zcore" />
+</paquet>
