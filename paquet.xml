@@ -13,8 +13,9 @@
 
 	<auteur lien="http://rednegra.net/cv/">Severo</auteur>
 	<credit lien="https://github.com/visionscarto/squelettes-visionscarto-net">Visions Carto</credit>
+	<credit lien="http://zone.spip.org/trac/spip-zone/browser/_squelettes_/integraal">Plugin Integraal</credit>
 
-	<licence lien="http://www.gnu.org/licenses/gpl-3.0.html">GNU/GPL</licence>
+	<licence lien="http://www.gnu.org/licenses/gpl-3.0.html">GNU/GPL v3</licence>
 	<copyright>2014</copyright>
 
 	<necessite nom="zcore" />
