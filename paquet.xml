@@ -20,7 +20,6 @@
 
 	<necessite nom="adaptive_images" compatibilite="[1.9.0;]" />
 	<necessite nom="compositions" compatibilite="[3.3.6;]" />
-	<necessite nom="menuder" />
 	<necessite nom="menus" compatibilite="[1.4.6;]" />
 	<necessite nom="pages" compatibilite="[1.0.5;]" />
 	<necessite nom="observatorio" />
