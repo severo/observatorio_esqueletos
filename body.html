@@ -1,18 +1,9 @@
 <body>
 	<section class="page">
-		[(#REM) <!-- Navigación de acceso rápido: anclas, búsqueda, plano, contacto --> ]
-		[<nav class="access" id="access">
-			<div class="container">
-				(#INCLURE{fond=inclure/access,env})
-			</div>
-		</nav>]
-		
 		[(#REM) <!-- Encabezado general del sitio --> ]
-		<header class="header" id="header">
-			<div class="container">
-				<INCLURE{fond=header/#ENV{type-page},env} />
-			</div>
-		</header>
+		[<header class="header" id="header">
+			(#INCLURE{fond=header/dist,env})
+		</header>]
 		
 		[(#REM) <!-- Navegación principal del sitio --> ]
 		[<nav class="firstnav" id="firstnav" role="navigation">
