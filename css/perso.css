@@ -1,0 +1,11 @@
+.ui.menu h1.item {
+	padding-top: 0;
+	padding-bottom: 0;
+	margin-bottom: 0;
+}
+
+#central {
+	max-width: 1000px;
+	margin: 0 auto;
+	padding-top: 3em;
+}

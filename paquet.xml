@@ -24,4 +24,8 @@
 	<necessite nom="pages" compatibilite="[1.0.5;]" />
 	<necessite nom="observatorio" />
 	<necessite nom="zcore" />
+	
+	<chemin path="./lib/semantic" type="public" />
+	<chemin path="./css" type="public" />
+	<chemin path="" />
 </paquet>

@@ -1,26 +1,24 @@
 <body>
-	<section class="page">
+	[(#REM) <!-- Navegación principal del sitio --> ]
+	[<nav id="lateralnav" class="ui vertical sidebar wide left menu hornav" role="navigation">
+		(#INCLURE{fond=inclure/lateralnav,env})
+	</nav>]
+
+	<section id="page" class="pusher" onclick="if($('body').is('.pushed')) {$('.ui.sidebar').sidebar('toggle');}">
 		[(#REM) <!-- Encabezado general del sitio --> ]
 		[<header class="header" id="header">
 			(#INCLURE{fond=header/dist,env})
 		</header>]
-		
-		[(#REM) <!-- Navegación principal del sitio --> ]
-		[<nav class="firstnav" id="firstnav" role="navigation">
-			<div class="container">
-				(#INCLURE{fond=inclure/firstnav,env})
-			</div>
-		</nav>]
-		
-		[(#REM) <!-- Camino jerárquico --> ]
-		<nav class="breadcrumb" id="breadcrumb">
-			<div class="container">
-				<INCLURE{fond=breadcrumb/#ENV{type-page},env} />
-			</div>
-		</nav>
-		
+
 		[(#REM) <!-- Contenido central del sitio = contenido principal + navegaciones segundarias --> ]
-		<div class="central">
+		<section id="central" class="full height">
+			[(#REM) <!-- Camino jerárquico --> ]
+			<nav class="breadcrumb" id="breadcrumb">
+				<div class="container">
+					<INCLURE{fond=breadcrumb/#ENV{type-page},env} />
+				</div>
+			</nav>
+
 			<div class="container" id="container">
 				<div class="wrapper" id="wrapper">
 					<section class="content" role="main" id="content">
@@ -34,13 +32,6 @@
 					<INCLURE{fond=extra/#ENV{type-page},env} />
 				</aside>
 			</div>
-		</div>
-		
-		[(#REM) <!-- Pie de página --> ]
-		<footer class="footer" id="footer">
-			<div class="container">
-				<INCLURE{fond=footer/#ENV{type-page},env} />
-			</div>
-		</footer>
+		</section>
 	</section>
 </body>

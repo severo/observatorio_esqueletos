@@ -47,14 +47,12 @@
 #INCLURE{fond=inc-theme-head,env}
 ]
 
-[(#REM)
-]
-
 [<link rel="stylesheet" type="text/css" class="ui" href="(#CHEMIN{lib/semantic/semantic.min.css})">]
 
 [(#REM) Feuille de style personnalisee pour surcharger les precedentes
 	A noter par defaut cette css n'existe pas
 ]
+[<link rel="stylesheet" href="(#CSS{css/tinytypo.css})" type="text/css" />]
 [<link rel="stylesheet" href="(#CSS{css/perso.css})" type="text/css" />]
 
 [(#REM) Balise permettant aux plugins d'inserer des appels javascript ou css ;
@@ -72,5 +70,5 @@
 [<script type="text/javascript" src="(#CHEMIN{lib/semantic/semantic.min.js})"></script>]
 
 [(#REM) Favicon ]
-[<link rel="icon" type="image/x-icon" href="(#CHEMIN{favicon.ico})" />
-[<link rel="shortcut icon" type="image/x-icon" href="(#CHEMIN{favicon.ico})" />]]
+[<link rel="icon" type="image/png" href="(#CHEMIN{images/favicon.png})" />
+[<link rel="shortcut icon" type="image/png" href="(#CHEMIN{images/favicon.png})" />]]

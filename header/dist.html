@@ -1,25 +1,18 @@
-<h1 id="logo_site_spip"[ class="(#EDIT{meta-nom_site})"]>
-	<a rel="start home" href="#URL_SITE_SPIP/" title="<:accueil_site:>">
-		[(#LOGO_SITE_SPIP|inserer_attribut{alt,#NOM_SITE_SPIP}|image_reduire{40,40}) ]
-		<span class="nombre_sitio">#NOM_SITE_SPIP</span>
-	</a>
-</h1>
+<div class="ui fixed main menu large">
 
-<nav class="header-iconos left" >
-	<ul class="menu-items">
-		<li id="boton-menu" class="item">
-			<a href="#URL_PAGE{plan}" class="fa fa-bars"></a>
-		</li>
-	</ul>
-</nav>
+	<nav class="menu left">
+		<a class="launch item" onclick="$('#lateralnav').sidebar('toggle');return false;" href="#URL_PAGE{plan}" title="Menú"><i class="content icon"></i></a>
 
-<nav class="header-iconos right" >
-	<ul class="menu-items">
-		<li class="item">
-			<a href="https://www.facebook.com/observando.universidadcordillera" class="fa fa-facebook" title="Facebook"></a>
-		</li>
-		<li class="item">
-			<a href="https://twitter.com/ObDelRacismo" class="fa fa-twitter" title="Twitter"></a>
-		</li>
-	</ul>
-</nav>
+		<h1 id="logo_site_spip" class="[(#EDIT{meta-nom_site})] item">
+			<a rel="start home" href="#URL_SITE_SPIP/" title="<:accueil_site:>">
+				[(#LOGO_SITE_SPIP|inserer_attribut{alt,#NOM_SITE_SPIP}|image_reduire{40,40}) ]
+				<span class="title">#NOM_SITE_SPIP</span>
+			</a>
+		</h1>
+	</nav>
+
+	<nav class="menu right">
+		<a href="https://www.facebook.com/observando.universidadcordillera" title="Facebook" class="item"><i class="icon facebook"></i></a>
+		<a href="https://twitter.com/ObDelRacismo" title="Twitter" class="item"><i class="icon twitter"></i></a>
+	</nav>
+</div>
