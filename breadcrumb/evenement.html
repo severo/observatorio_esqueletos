@@ -1,7 +1,9 @@
 <BOUCLE_evenement(EVENEMENTS){id_evenement}>
-<ul class="breadcrumb-items">
-	<li class="item"><a href="#URL_SITE_SPIP/"><:accueil_site:></a><span class="divider"> &gt; </span></li>
-	<li class="item"><a href="#URL_ARTICLE">[(#INFO_TITRE{article,#ID_ARTICLE}|couper{80})]</a><span class="divider"> &gt; </span></li>
-	<li class="item active">[<strong>(#TITRE|couper{80})</strong>]</li>
-</ul>
+<div class="ui breadcrumb">
+	<a class="section" href="#URL_SITE_SPIP/"><:accueil_site:></a>
+	<div class="divider"><i class="right chevron icon divider"></i></div>
+	<a class="section" href="#URL_ARTICLE">[(#INFO_TITRE{article,#ID_ARTICLE}|couper{80})]</a>
+	<div class="divider"><i class="right chevron icon divider"></i></div>
+	<div class="active section">[(#TITRE|couper{80})]</div>
+</div>
 </BOUCLE_evenement>
