@@ -1,3 +1,9 @@
+<form class="item" action="./" method="get">
+	<input type="hidden" name="page" value="recherche" />
+	<div class="ui input"><input class="prompt" name="recherche" placeholder="Buscar…" type="text"></div>
+	<button class="ui grey button offscreen">ok</button>
+</form>
+
 [(#PLUGIN{menus}|oui)
 [
 	(#INCLURE{fond=inclure/menu,identifiant=firstnav,env})
