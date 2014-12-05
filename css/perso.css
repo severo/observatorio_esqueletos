@@ -9,3 +9,7 @@
 	margin: 0 auto;
 	padding-top: 4em;
 }
+
+#pass_securise {
+	display: none !important;
+}

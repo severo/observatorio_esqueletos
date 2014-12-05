@@ -1,0 +1,61 @@
+#HTTP_HEADER{"Cache-Control: no-store, no-cache, must-revalidate"}
+#HTTP_HEADER{"Pragma: no-cache"}
+
+<div class='ui form compact segment formulaire_spip formulaire_login'>
+	[<p class="reponse_formulaire reponse_formulaire_ok">(#ENV*{_deja_loge})</p>]
+	[<p class="reponse_formulaire reponse_formulaire_ok">(#ENV*{message_ok})</p>]
+	[<p class='reponse_formulaire reponse_formulaire_erreur'>(#ENV*{message_erreur})</p>]
+
+	[(#ENV{echec_cookie})
+	<fieldset class='reponse_formulaire reponse_formulaire_erreur'>
+		<h2><:avis_erreur_cookie:></h2>
+		<p class="erreur_message"><:login_cookie_oblige:><br /><:login_cookie_accepte:></p>
+	</fieldset>]
+
+	[(#ENV{editable})
+	<form id='formulaire_login' method='post' action='#ENV{action}'>
+	[(#REM) declarer les hidden qui declencheront le service du formulaire parametre : url d'action ]
+	#ACTION_FORMULAIRE{#ENV{action}}
+		[<span id="spip_logo_auteur">(#ENV*{_logo,''})</span>]
+		<div>
+			<div class="required field editer editer_login obligatoire[(#ENV**{erreurs}|table_valeur{var_login}|oui)erreur error]">
+				<label for="var_login"><:login_login2:></label>[
+				<div class="ui error message erreur_message">(#ENV**{erreurs}|table_valeur{var_login})</div>
+				]
+				<div class="ui icon input">
+					<input type='text' class='text' placeholder="<:login_login2:>" name='var_login' id='var_login' value="[(#ENV**{var_login})]" size='40'[(#HTML5) required='required' autofocus='autofocus'] autocapitalize="off" autocorrect="off" />
+					<i class="user icon"></i>
+				</div>
+			</div>
+			<div class="required field editer editer_password obligatoire[(#ENV**{erreurs}|table_valeur{password}|oui)erreur error]">
+				<label for="password"><:login_pass2:></label>[
+				<div class="ui error message erreur_message">(#ENV**{erreurs}|table_valeur{password})</div>
+				]<div class="ui icon input">
+					<input type='password' class='text password' name='password' id='password' value="" size='40' autocapitalize="off" autocorrect="off" />
+					<i class="lock icon"></i>
+				</div>
+				<p class='details'><a href="[(#URL_PAGE{spip_pass}|parametre_url{lang,#LANG})]" id='spip_pass'><:login_motpasseoublie:></a></p>
+			</div>
+			[(#ENV{rester_connecte})
+			<div class="editer editer_session"><div class='choix ui checkbox'>
+				<input type="checkbox" class="checkbox" name="session_remember" id="session_remember" value="oui" [(#ENV**{cnx}|?{' '})checked="checked"] onchange="jQuery(this).addClass('modifie');" />
+				<label class='nofx' for="session_remember"><:login_rester_identifie:></label>
+			</div></div>]
+		</div>
+	<p class="boutons"><input type="submit" class="ui submit button right blue" value="<:bouton_valider|attribut_html:>" /></p>
+	</form>
+	]
+	[(#REM) en cas d'absence de cookie, on represente le formulaire alternatif ]
+	[<form action="(#ENV{auth_http})" method="get">[
+	(#ENV{auth_http}|form_hidden)
+	]
+	<fieldset>
+		<legend><:login_sans_cookiie:></legend>
+		<:login_preferez_refuser:>
+		<input type="hidden" name="essai_auth_http" value="oui"/>
+		[<input type="hidden" name="url" value="(#ENV{url})"/>]
+		<p class="boutons"><input type="submit" class="submit" value="<:login_sans_cookiie|attribut_html:>"/></p>
+	</fieldset>
+	</form>
+	]
+</div>
