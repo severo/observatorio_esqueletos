@@ -335,7 +335,8 @@ ol ul {
 }
 ol,
 ul {
-  margin-left: 1.5em;
+  margin-left: 0.5em;
+  padding-left: 0;
   -webkit-margin-before: 0;
   -webkit-margin-after: 0;
 }
@@ -343,7 +344,7 @@ dt {
   font-weight: bold;
 }
 dd {
-  margin-left: 1.5em;
+  margin-left: 0.5em;
 }
 .list-none {
   margin-left: 0;
@@ -353,28 +354,28 @@ dd {
   content: '';
 }
 .list-square {
-  margin-left: 1.5em;
+  margin-left: 0.5em;
   list-style: square;
 }
 .list-square li:before {
   content: '';
 }
 .list-disc {
-  margin-left: 1.5em;
+  margin-left: 0.5em;
   list-style: disc;
 }
 .list-disc li:before {
   content: '';
 }
 .list-circle {
-  margin-left: 1.5em;
+  margin-left: 0.5em;
   list-style: circle;
 }
 .list-circle li:before {
   content: '';
 }
 .list-decimal {
-  margin-left: 1.5em;
+  margin-left: 0.5em;
   list-style: decimal;
 }
 .list-decimal li:before {
