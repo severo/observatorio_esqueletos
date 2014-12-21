@@ -1,7 +1,17 @@
-.ui.menu h1.item {
+#header .ui.menu h1.item {
 	padding-top: 0;
 	padding-bottom: 0;
 	margin-bottom: 0;
+}
+
+#header .ui.menu h1.item .ui.grid > .column:not(.row), .ui.grid > .row > .column {
+	vertical-align: middle;
+}
+
+#header .ui.menu h1.item .title {
+	width: inherit;
+	font-size: 1.5rem;
+	padding-left: 0;
 }
 
 #central {

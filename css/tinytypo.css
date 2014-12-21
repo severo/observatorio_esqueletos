@@ -29,7 +29,7 @@
   display: inline-block;
 }
 /* Positioning */
-.left {
+/*.left {
   float: left;
 }
 .right {
@@ -38,7 +38,8 @@
 .center {
   margin-right: auto;
   margin-left: auto;
-}
+}*/
+
 /* Blocks spacer
 [fr] Espaceur de blocs : http://romy.tetue.net/657 */
 .clear {
