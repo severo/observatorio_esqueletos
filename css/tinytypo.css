@@ -116,7 +116,7 @@ html {
 et http://forum.alsacreations.com/topic-4-54377-1.html
 [en] http://stackoverflow.com/questions/2703056/body-font-size-100-01-vs-body-font-size-100 */
 body {
-  font-size: 1em;
+  font-size: 1.5em;
   line-height: 1.5;
 }
 /* Titraille / Intertitres */
@@ -136,7 +136,7 @@ h6,
   margin: 0;
   padding: 0;
   font-size: 100%;
-  font-weight: normal;
+  font-weight: bold;
 }
 h1,
 .h1 {

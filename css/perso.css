@@ -23,3 +23,16 @@
 #pass_securise {
 	display: none !important;
 }
+
+header.cartouche {
+	margin-bottom: 2em;
+}
+
+figcaption {
+	text-align: left;
+	color: #a1a1a1;
+}
+
+figcaption i.icon {
+	margin: 0 0.5em;
+}

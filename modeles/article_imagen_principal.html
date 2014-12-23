@@ -1,0 +1,9 @@
+<BOUCLE_documents_joints(DOCUMENTS) {id_article} {0,1}>
+<figure class="document[ (#EXTENSION|attribut_html)]">
+	<a href="#URL_DOCUMENT" rel="bookmark" type="#MIME_TYPE" title="<:bouton_telecharger:> [(#TYPE_DOCUMENT) - ][(#TAILLE|taille_en_octets)]" >
+		[(#LOGO_DOCUMENT|image_reduire{#ENV{largeur_logo,-1},#ENV{hauteur_logo,-1}}|responsive_logo)]
+		[<figcaption><i class="photo icon"></i>(#TITRE|sinon{#FICHIER|basename|couper{80}})</figcaption>]
+	</a>
+</figure>
+<div class="ui divider"></div>
+</BOUCLE_documents_joints>
