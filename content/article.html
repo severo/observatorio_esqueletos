@@ -10,19 +10,23 @@
 		<div class="postmeta">
 			#MODELE{article_imagen_principal}
 			
-			<p class="publication"><time pubdate="pubdate" datetime="[(#DATE|date_iso)]">[(#DATE|nom_jour) ][(#DATE|affdate)]</time></p>
-			
-			<BOUCLE_nb_commentaires(FORUMS) {id_article}{plat} />[(#TOTAL_BOUCLE|oui)
-			<span class="comments">
-				<span class="sep">|</span>
-				<a[ href="(#REM|ancre_url{comments})"] [title="(#TOTAL_BOUCLE|singulier_ou_pluriel{zcore:info_1_commentaire,zcore:info_nb_commentaires}|attribut_html)"]>[<i class="icon-comment"></i> (#TOTAL_BOUCLE)]</a>
-			</span>
-			]<//B_nb_commentaires>
-			<B_tags>
-			<div class="ui big horizontal list">
-					<BOUCLE_tags(MOTS){id_article}>
-					<div class="item"><span class="lien_hash">#</span><a class="label" href="#URL_MOT"> #TITRE</a></div>
-					</BOUCLE_tags>
+			<div class="publication ui list horizontal big divided">
+				<div class="item"><time pubdate="pubdate" datetime="[(#DATE|date_iso)]"><i class="icon calendar"></i>[(#DATE|nom_jour) ][(#DATE|affdate)]</time></div>
+				<div class="item"><span class="auteurs"><i class="icon user"></i>#LESAUTEURS</span></div>
+
+				<BOUCLE_nb_commentaires(FORUMS) {id_article}{plat} />[(#TOTAL_BOUCLE|oui)
+				<div class="item"><a[ href="(#REM|ancre_url{comments})"] [title="(#TOTAL_BOUCLE|singulier_ou_pluriel{zcore:info_1_commentaire,zcore:info_nb_commentaires}|attribut_html)"]>[<i class="icon-comment"></i> (#TOTAL_BOUCLE|singulier_ou_pluriel{zcore:info_1_commentaire,zcore:info_nb_commentaires})]</a></div>
+				]<//B_nb_commentaires>
+			</div>
+		<div class="clearfix"></div>
+
+			<B_tags><i class="tags icon"></i>
+			<div class="ui list horizontal big divided">
+				<BOUCLE_tags(MOTS){id_article}>
+					<div class="item">
+						<a class="label" href="#URL_MOT"> #TITRE</a>
+					</div>
+				</BOUCLE_tags>
 			</div>
 			</B_tags>
 		</div>
@@ -35,7 +39,7 @@
 		[<div class="#EDIT{chapo} chapo surlignable">(#CHAPO|adaptive_images)</div>]
 		[<div class="#EDIT{texte} texte surlignable">(#TEXTE|adaptive_images)</div><div class="ui divider"></div>]
 
-		[<p class="#EDIT{hyperlien} hyperlien"><:voir_en_ligne:> : <a href="(#URL_SITE)" class="spip_out">[(#NOM_SITE|sinon{[(#URL_SITE|couper{80})]})]</a></p><div class="ui divider"></div>]
+		[<p class="#EDIT{hyperlien} hyperlien"><i class="external link icon"></i><:voir_en_ligne:>: <a href="(#URL_SITE)" class="spip_out">[(#NOM_SITE|sinon{[(#URL_SITE|couper{80})]})]</a></p><div class="ui divider"></div>]
 	</div>
 
 	<footer>
