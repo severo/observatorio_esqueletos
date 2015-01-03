@@ -40,3 +40,8 @@ figcaption i.icon {
 .ui.breadcrumb {
 	font-size: 0.8em;
 }
+
+/* Botones de redes sociales */
+.compartir_redes_sociales .ui.horizontal.list > .item {
+	font-size: 1.5rem;
+}

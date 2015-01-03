@@ -35,15 +35,16 @@
 		[<div class="#EDIT{chapo} chapo surlignable">(#CHAPO|adaptive_images)</div>]
 		[<div class="#EDIT{texte} texte surlignable">(#TEXTE|adaptive_images)</div><div class="ui divider"></div>]
 
-		[(#URL_SITE|oui)
-			#INCLURE{fond=inclure/metadatos_noticia,id_article}
-		]
 	</div>
 
 	<footer>
 		[<div class="#EDIT{ps} ps surlignable"><h2><:info_ps:></h2>(#PS|adaptive_images)</div>]
 		[<div class="notes"><h2><:info_notes:></h2>(#NOTES)</div>]
 		
+		[(#URL_SITE|oui)
+			#INCLURE{fond=inclure/metadatos_noticia,id_article}
+		]
+		#INCLURE{fond=inclure/compartir_redes_sociales,id_article}
 	</footer>
 
 	<aside>
