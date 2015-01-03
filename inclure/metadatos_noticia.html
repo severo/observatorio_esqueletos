@@ -3,15 +3,15 @@
 		<h3 class="h3">Detalles de la noticia</h3>
 
 		<BOUCLE_periodico(MOTS){id_mot=#NOTICIA_PERIODICO}>
-			<div class="item"><a class="periodico" href="#PERIODICO_URL"><i class="icon book"></i>#TITRE
+			<div class="item"><a class="periodico" href="#PERIODICO_URL" title="Noticia publicada en #TITRE"><i class="icon book"></i>#TITRE
 			<BOUCLE_TIPO_PERIODICO(MOTS){id_mot=#TIPO_PERIODICO}>
 				(#TITRE)
 			</BOUCLE_TIPO_PERIODICO>
-			</span></div>
+			</a></div>
 		</BOUCLE_periodico>
 		[<div class="item"><time pubdate="pubdate" datetime="[(#NOTICIA_FECHA|date_iso)]"><i class="icon calendar outline"></i>[(#NOTICIA_FECHA|nom_jour) ](#NOTICIA_FECHA|affdate)</time></div>]
 		[<div class="item"><span class="autor"><i class="icon user"></i>(#NOTICIA_AUTOR)</span></div>]
-		[<p class="#EDIT{hyperlien} hyperlien"><i class="external link icon"></i><:voir_en_ligne:>: <a href="(#URL_SITE)" class="spip_out">[(#NOM_SITE|sinon{[(#URL_SITE|couper{80})]})]</a></p>]
+		[<p class="#EDIT{hyperlien} hyperlien"><a href="(#URL_SITE)" class="spip_out" title="<:voir_en_ligne:>[: (#NOM_SITE|sinon{[(#URL_SITE|couper{80})]})]"><i class="external link icon"></i><:voir_en_ligne:></a></p>]
 		<div class="ui divider"></div>
 	</div>
 </BOUCLE_content>
