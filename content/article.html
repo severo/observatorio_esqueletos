@@ -4,6 +4,7 @@
 		[<p class="#EDIT{surtitre} surtitre">(#SURTITRE)</p>]
 		<h1><span class="#EDIT{titre}">#TITRE</span></h1>
 		[<p class="#EDIT{soustitre} soustitre">(#SOUSTITRE)</p>]
+
 		[(#REM) Inclure le modele des liens de traductions ]
 		<div class="postmeta">
 			#MODELE{article_imagen_principal}
@@ -16,8 +17,7 @@
 				<div class="item"><a[ href="(#REM|ancre_url{comments})"] [title="(#TOTAL_BOUCLE|singulier_ou_pluriel{zcore:info_1_commentaire,zcore:info_nb_commentaires}|attribut_html)"]>[<i class="icon-comment"></i> (#TOTAL_BOUCLE|singulier_ou_pluriel{zcore:info_1_commentaire,zcore:info_nb_commentaires})]</a></div>
 				]<//B_nb_commentaires>
 			</div>
-		<div class="clearfix"></div>
-
+			<div class=clearfix"></div>
 			<B_tags><i class="tags icon"></i>
 			<div class="ui list horizontal big divided">
 				<BOUCLE_tags(MOTS){id_article}>
@@ -27,17 +27,17 @@
 				</BOUCLE_tags>
 			</div>
 			</B_tags>
+			<div class="ui divider"></div>
 		</div>
-		
-		<div class="ui divider"></div>
-
 	</header>
 
 	<div class="main">
 		[<div class="#EDIT{chapo} chapo surlignable">(#CHAPO|adaptive_images)</div>]
 		[<div class="#EDIT{texte} texte surlignable">(#TEXTE|adaptive_images)</div><div class="ui divider"></div>]
 
-		[<p class="#EDIT{hyperlien} hyperlien"><i class="external link icon"></i><:voir_en_ligne:>: <a href="(#URL_SITE)" class="spip_out">[(#NOM_SITE|sinon{[(#URL_SITE|couper{80})]})]</a></p><div class="ui divider"></div>]
+		[(#URL_SITE|oui)
+			#INCLURE{fond=inclure/metadatos_noticia,id_article}
+		]
 	</div>
 
 	<footer>
