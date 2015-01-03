@@ -14,8 +14,15 @@
 	padding-left: 0;
 }
 
+html {
+	font-size: 1rem;
+}
+body {
+	font-size: 1.2rem;
+}
+
 #central {
-	width: 850px;
+	max-width: 850px;
 	margin: 0 auto;
 	padding-top: 4em;
 }
@@ -41,7 +48,6 @@ figcaption i.icon {
 	font-size: 0.8em;
 }
 
-/* Botones de redes sociales */
-.compartir_redes_sociales .ui.horizontal.list > .item {
-	font-size: 1.5rem;
+.ui.horizontal.list > .item {
+	font-size: 1.2rem;
 }
