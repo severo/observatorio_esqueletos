@@ -3,9 +3,9 @@
 
 <BOUCLE_contexte_rubrique(RUBRIQUES) {id_rubrique=(#OBJET|=={rubrique}|?{#INFO_ID_PARENT{#OBJET,#ID_OBJET},#INFO_ID_RUBRIQUE{#OBJET,#ID_OBJET}})}>
 <BOUCLE_ariane_hier(HIERARCHIE) {id_rubrique}{tout}>
-<a class="section" href="#URL_RUBRIQUE">[(#TITRE|couper{80})]</a>
+<a class="section" href="#URL_RUBRIQUE">[(#TITRE|couper{50})]</a>
 <div class="divider"><i class="right chevron icon divider"></i></div>
 </BOUCLE_ariane_hier>
 </BOUCLE_contexte_rubrique>
-<div class="[(#ENV{expose,' '}|oui)active] section" href="#URL_RUBRIQUE">[(#ID_OBJET|generer_url_entite{#OBJET}|lien_ou_expose{#INFO_TITRE{#OBJET,#ID_OBJET}|sinon{?}|couper{80},#ENV{expose,' '}|?{span}})]</div>
+<div class="[(#ENV{expose,' '}|oui)active] section" href="#URL_RUBRIQUE">[(#ID_OBJET|generer_url_entite{#OBJET}|lien_ou_expose{#INFO_TITRE{#OBJET,#ID_OBJET}|sinon{?}|couper{50},#ENV{expose,' '}|?{span}})]</div>
 [(#ENV{expose,' '}|non)<div class="divider"><i class="right chevron icon divider"></i></div>]
