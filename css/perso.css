@@ -15,7 +15,7 @@
 }
 
 #central {
-	max-width: 1000px;
+	width: 850px;
 	margin: 0 auto;
 	padding-top: 4em;
 }
@@ -35,4 +35,8 @@ figcaption {
 
 figcaption i.icon {
 	margin: 0 0.5em;
+}
+
+.ui.breadcrumb {
+	font-size: 0.8em;
 }
