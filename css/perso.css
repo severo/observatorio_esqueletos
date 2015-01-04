@@ -53,6 +53,10 @@ figcaption i.icon {
 	font-size: 1.2rem;
 }
 
+ul.ui.list li:before {
+	content: "";
+}
+
 #footer > .footer {
 	padding-top: 4em;
 	padding-bottom: 5em;

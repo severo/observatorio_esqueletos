@@ -25,9 +25,22 @@
 			</B_sous_articles>
 		</li>
 		</BOUCLE_rubriques>
-		<BOUCLE_articles(ARTICLES){id_rubrique=#ID_SECTEUR}{par num titre, titre}>
+		<BOUCLE_articles(ARTICLES){id_rubrique=#ID_SECTEUR}{!par date}>
 		<li class="item[ (#EXPOSE{on active})]">
-			<a href="#URL_ARTICLE">#TITRE</a>
+			<BOUCLE_documents_joints(DOCUMENTS) {id_article} {0,1}>
+				[(#FICHIER|image_reduire{100,100}|image_recadre{50,50,'top center','transparent'}|inserer_attribut{class, "ui top aligned avatar image"})]
+			</BOUCLE_documents_joints>
+				[(#CHEMIN{images/square-image.png}|image_reduire{50,50}|image_recadre{50,50,'top center','transparent'}|inserer_attribut{class, "ui top aligned avatar image"})]
+			<//B_documents_joints>
+			<div class="content">
+				<a href="#URL_ARTICLE" class="header">#TITRE</a>
+				<div class="description">
+				[<span class="date label">(#DATE|affdate)</span>]
+				<BOUCLE_periodico(MOTS){id_mot=#NOTICIA_PERIODICO}>
+					<span class="periodico"> - #TITRE</span>
+				</BOUCLE_periodico>
+				</div>
+			</div>
 		</li>
 		</BOUCLE_articles>
 	</ul>
