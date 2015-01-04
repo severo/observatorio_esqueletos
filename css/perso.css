@@ -25,6 +25,7 @@ body {
 	max-width: 850px;
 	margin: 0 auto;
 	padding-top: 4em;
+	padding-bottom: 7em;
 }
 
 #pass_securise {
@@ -50,4 +51,13 @@ figcaption i.icon {
 
 .ui.horizontal.list > .item {
 	font-size: 1.2rem;
+}
+
+#footer > .footer {
+	padding-top: 4em;
+	padding-bottom: 5em;
+}
+#footer > .footer > .container {
+	max-width: 850px;
+	margin: 0 auto;
 }
