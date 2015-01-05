@@ -12,7 +12,7 @@
 		<li class="item">#INCLURE{fond=inclure/resume/article,id_article}</li>
 		</BOUCLE_articles>
 	</ul>
-	[<div class="pagination">(#PAGINATION)</div>]
+	#PAGINATION{observatorio}
 </B_articles>
 [(#SET{message_aucun, [(#ENV{message_aucun}|is_null|?{<:info_aucun_article:>, #ENV{message_aucun}})]})]
 [<p>(#GET{message_aucun})</p>]

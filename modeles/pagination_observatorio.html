@@ -1,0 +1,61 @@
+#ENV*{bloc_ancre}
+#SET{bornes,#ENV{page_courante}|bornes_pagination{#ENV{nombre_pages},10}}
+#SET{premiere, #GET{bornes}|reset}
+#SET{derniere, #GET{bornes}|end}
+#SET{pages,#GET{premiere}|range{#GET{derniere}}}
+<B_pages>
+	[
+
+	(#SET{item, #ENV{page_courante}|moins{2}|mult{#ENV{pas}} })
+
+	]
+	<div class="pagination ui buttons">
+		[<a
+			href='[(#ENV{url}|parametre_url{#ENV{debut},''})]##ENV{ancre}'
+			class="ui button'
+			rel='nofollow'>(#GET{premiere}|>{1}|?{0})</a>
+
+		<div class="ui button">...</div>]
+		
+		<BOUCLE_pages(POUR){tableau #GET{pages}}>
+			[
+				(#SET{item, #VALEUR|moins{1}|mult{#ENV{pas}} })
+			]
+
+			[(#VALEUR|=={#ENV{page_courante}}|oui)
+				<div class="ui button active">#GET{item}</div>
+			]
+			[(#VALEUR|=={#ENV{page_courante}}|non)
+				<a class="ui button"
+					href="[(#ENV{url}
+						|parametre_url{#ENV{debut},#GET{item}|?{#GET{item}}}
+						|ancre_url{#ENV{ancre}})]"
+					rel='nofollow'
+					>#GET{item}</a>
+			]
+		</BOUCLE_pages>
+		
+		[<div class="ui button">...</div>
+		<a
+			href='[(#ENV{url}|parametre_url{#ENV{debut},#ENV{nombre_pages}|moins{1}|mult{#ENV{pas}}})]##ENV{ancre}'
+			class='lien_pagination ui button'
+			rel='nofollow'>
+			(#GET{derniere}|<{#ENV{nombre_pages}}|?{#ENV{nombre_pages}|moins{1}|mult{#ENV{pas}}})
+		</a>]
+
+		[(#ENV{nombre_pages}|moins{1}|mult{#ENV{pas}}|<{1000}|oui)
+			[(#SET{item, #ENV{page_courante}|mult{#ENV{pas}} })]
+			[(#ENV{page_courante}|=={0}|oui)
+				<div class="all ui button active"><:lien_tout_afficher:></div>
+			]
+			[(#ENV{page_courante}|=={0}|non)
+				<a class="ui button"
+					href="[(#ENV{url}
+						|parametre_url{#ENV{debut},-1}
+						|ancre_url{#ENV{ancre}})]"
+					rel='nofollow'
+					><:lien_tout_afficher:></a>
+			]
+		]
+	</div>
+</B_pages>
