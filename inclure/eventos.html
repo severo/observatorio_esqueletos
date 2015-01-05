@@ -9,11 +9,11 @@
 				<div class="content">
 					<meta itemprop="startDate" content="[(#DATE_DEBUT|date_iso)]" />
 					<meta itemprop="endDate" content="[(#DATE_FIN|date_iso)]" />
-					<a class="header">#TITRE</a>
+					<a class="header #EDIT{titre}">#TITRE</a>
 					<div class="description ui list">
-						[<div class="item lugar">Lugar: (#LIEU)</div>]
+						[<div class="item lugar #EDIT{lieu}">Lugar: (#LIEU)</div>]
 						[<div class="item fecha">Fecha: <time>(#DATE_DEBUT|agenda_affdate_debut_fin{#DATE_FIN,#HORAIRE*,'hcal'})</time></div>]
-						#DESCRIPTIF
+						[<div class="introduction #EDIT{descriptif}" itemprop="description">(#DESCRIPTIF)</div>]
 					</div>
 				</div>
 			</div>
