@@ -57,6 +57,11 @@ ul.ui.list li:before {
 	content: "";
 }
 
+ul.ui.list li.item p:last-child {
+	margin-top: 0.5em;
+	margin-bottom: 1.5em;
+}
+
 #footer > .footer {
 	padding-top: 4em;
 	padding-bottom: 5em;
