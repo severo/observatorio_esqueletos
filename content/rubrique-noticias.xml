@@ -1,0 +1,6 @@
+<composition>
+	<nom>Sección de noticias</nom>
+	<description>Para la sección que contiene las noticias.</description>
+	<icon>images/objet-liste-contenus.png</icon>
+	<branche type="article" composition="noticias" />
+</composition>
