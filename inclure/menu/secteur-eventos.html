@@ -25,9 +25,15 @@
 			</B_sous_articles>
 		</li>
 		</BOUCLE_rubriques>
-		
-		</BOUCLE_articles>
+		<B_eventos>
+			#ANCRE_PAGINATION
+			<BOUCLE_eventos(EVENEMENTS){id_rubrique=#ID_SECTEUR}{!par date_debut}{pagination #ENV{nb,5}}>
+				<BOUCLE_article(ARTICLES){id_article}{doublons}>
+					<li class="item">#INCLURE{fond=inclure/resume/article-eventos-mini,id_article}</li>
+				</BOUCLE_article>
+			</BOUCLE_eventos>
+			#PAGINATION{observatorio}
+		</B_eventos>
 	</ul>
-	<INCLURE{fond=liste/articles-eventos-resume,id_rubrique=#ID_SECTEUR,ajax,par=date,nb=5} />
 </nav>
 </BOUCLE_rubrique_principale>

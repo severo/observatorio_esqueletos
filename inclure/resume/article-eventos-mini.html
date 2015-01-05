@@ -1,0 +1,33 @@
+[(#REM)
+
+  Squelette Presentation resumee d'un article dans une liste
+  Distribue sous licence GPL
+
+]
+<BOUCLE_resume_article(ARTICLES) {id_article} {statut?}>
+#SET{titre,#TITRE}
+#SET{url,#URL_ARTICLE}
+<BOUCLE_resume_rubrique(RUBRIQUES){id_rubrique}{si #PLUGIN{article_accueil}}>
+[(#ID_ARTICLE_ACCUEIL|=={#_articles:ID_ARTICLE}|oui)
+	#SET{titre,#TITRE}
+	#SET{url,#URL_RUBRIQUE}
+]
+</BOUCLE_resume_rubrique>
+	<BOUCLE_documents_joints(DOCUMENTS) {extension==jpg|png|gif} {id_article} {0,1}>
+		[(#FICHIER|image_reduire{100,100}|image_recadre{50,50,'top center','transparent'}|inserer_attribut{class, "ui top aligned avatar image"})]
+	</BOUCLE_documents_joints>
+		[(#CHEMIN{images/square-image.png}|image_reduire{50,50}|image_recadre{50,50,'top center','transparent'}|inserer_attribut{class, "ui top aligned avatar image"})]
+	<//B_documents_joints>
+	<div class="content">
+		[<a href="#GET{url}" rel="bookmark" class="header">(#GET{titre}|couper{80})</a>]
+		<div class="description">
+			<B_eventos>
+			<BOUCLE_eventos(EVENEMENTS){par date} {id_article}>
+				[<div class="item fecha">Fecha: <time>(#DATE_DEBUT|agenda_affdate_debut_fin{#DATE_FIN,#HORAIRE*,'hcal'})</time></div>]
+			</BOUCLE_eventos>
+			</B_eventos>
+		</div>
+	</div>
+</BOUCLE_resume_article>
+
+
