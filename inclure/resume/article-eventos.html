@@ -21,11 +21,27 @@
 	<div class="content">
 		[<a href="#GET{url}" rel="bookmark" class="header">(#GET{titre}|couper{80})</a>]
 		<div class="description">
-			[<time pubdate="pubdate" datetime="[(#DATE|date_iso)]" class="date label">(#DATE|affdate)</time>]
-			<BOUCLE_periodico(MOTS){id_mot=#NOTICIA_PERIODICO}>
-				<span class="periodico"> - #TITRE</span>
-			</BOUCLE_periodico>
+			<B_eventos>
+			<div class="ui divided list">
+			<BOUCLE_eventos(EVENEMENTS){par date} {id_article}>
+				<div class="item" itemscope itemtype="http://schema.org/Event">
+					<i class="calendar icon top aligned"></i>
+					<div class="content">
+						[<a class="header #EDIT{titre}">(#TITRE|couper{80})</a>]
+						<meta itemprop="startDate" content="[(#DATE_DEBUT|date_iso)]" />
+						<meta itemprop="endDate" content="[(#DATE_FIN|date_iso)]" />
+						<div class="description ui list">
+							[<div class="item lugar #EDIT{lieu}">Lugar: (#LIEU)</div>]
+							[<div class="item fecha">Fecha: <time>(#DATE_DEBUT|agenda_affdate_debut_fin{#DATE_FIN,#HORAIRE*,'hcal'})</time></div>]
+						</div>
+					</div>
+				</div>
+			</BOUCLE_eventos>
+			</div>
+			</B_eventos>
 		</div>
 	</div>
 	[(#ENV{con_intro,oui}|=={oui}|oui)[<div class="#EDIT{intro} introduction entry-content">(#INTRODUCTION{#ENV{coupe,200}})</div>]]
 </BOUCLE_resume_article>
+
+
