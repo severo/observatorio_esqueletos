@@ -13,7 +13,7 @@
 	#SET{url,#URL_RUBRIQUE}
 ]
 </BOUCLE_resume_rubrique>
-	<BOUCLE_documents_joints(DOCUMENTS) {id_article} {0,1}>
+	<BOUCLE_documents_joints(DOCUMENTS) {extension==jpg|png|gif} {id_article} {0,1}>
 		[(#FICHIER|image_reduire{100,100}|image_recadre{50,50,'top center','transparent'}|inserer_attribut{class, "ui top aligned avatar image"})]
 	</BOUCLE_documents_joints>
 		[(#CHEMIN{images/square-image.png}|image_reduire{50,50}|image_recadre{50,50,'top center','transparent'}|inserer_attribut{class, "ui top aligned avatar image"})]
