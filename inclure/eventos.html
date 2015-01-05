@@ -1,0 +1,39 @@
+<B_eventos>
+	<div class="eventos">
+		<h3 class="h3">¿Donde y cuando?</h3>
+
+		<div class="ui divided list">
+		<BOUCLE_eventos(EVENEMENTS){par date} {id_article}>
+			<div class="item">
+				<i class="calendar icon top aligned"></i>
+				<div class="content">
+					<a class="header">#_eventos:TITRE</a>
+					<div class="description ui list">
+						[<div class="item lugar">Lugar: (#LIEU)</div>]
+						<div class="item fecha">Fecha: 
+							[(#DATE_DEBUT|jour|=={[(#DATE_FIN|jour)]}|?{
+							el [(#DATE_DEBUT|nom_jour)] [(#DATE_DEBUT|affdate)]
+							[(#HORAIRE|=={oui}|?{
+							[(#REM) memes heures ?]
+							[(#DATE_DEBUT|=={#DATE_FIN}|?{a las
+							[(#DATE_DEBUT|heures)]h[(#DATE_DEBUT|minutes)],''})]
+							[(#REM) pas memes heures ?]
+							[(#DATE_DEBUT|!={#DATE_FIN}|?{de las
+							[(#DATE_DEBUT|heures)]:[(#DATE_DEBUT|minutes)] hasta las
+							[(#DATE_FIN|heures)]:[(#DATE_FIN|minutes)],''})]
+							,''})]
+							,
+							del [(#DATE_DEBUT|nom_jour)] [(#DATE_DEBUT|affdate)]
+							[(#HORAIRE|=={oui}|?{a partir de las
+							[(#DATE_DEBUT|heures)]H[(#DATE_DEBUT|minutes)],''})] hasta el 
+							[(#DATE_FIN|nom_jour)]
+							[(#DATE_FIN|affdate)] [(#HORAIRE|=={oui}|?{a las
+							[(#DATE_FIN|heures)]H[(#DATE_FIN|minutes)],''})] })]
+						</div>
+						#DESCRIPTIF
+					</div>
+				</div>
+			</div>
+		</BOUCLE_eventos>
+	</div>
+</B_eventos>

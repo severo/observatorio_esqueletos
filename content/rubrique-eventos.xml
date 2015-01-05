@@ -1,0 +1,6 @@
+<composition>
+	<nom>Sección de eventos</nom>
+	<description>Para la sección que contiene los eventos.</description>
+	<icon>images/objet-liste-contenus-dates</icon>
+	<branche type="article" composition="eventos" />
+</composition>
