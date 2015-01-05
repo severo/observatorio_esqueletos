@@ -1,3 +1,6 @@
+[(#REM) Ver http://www.teddypayet.com/Squelettes-Z-core-sous-SPIP-3]
+[(#SET{html,#ENV{type-page}})]
+[(#SET{html2,#ENV{type-page}-#ENV{composition}})]
 <body>
 	[(#REM) <!-- Navegación principal del sitio --> ]
 	[<nav id="lateralnav" class="ui vertical sidebar left menu hornav" role="navigation">
@@ -15,21 +18,25 @@
 			[(#REM) <!-- Camino jerárquico --> ]
 			<nav class="breadcrumb" id="breadcrumb">
 				<div class="container">
-					<INCLURE{fond=breadcrumb/#ENV{type-page},env} />
+					[(#SET{breadcrumb,#CHEMIN{breadcrumb/#GET{html2}.html}|?{#GET{html2},#GET{html}}})]
+					<INCLURE{fond=breadcrumb/#GET{breadcrumb},env} />
 				</div>
 			</nav>
 
 			<div class="container" id="container">
 				<div class="wrapper" id="wrapper">
 					<section class="content" role="main" id="content">
-						<INCLURE{fond=content/#ENV{type-page},env} />
+						[(#SET{content,#CHEMIN{content/#GET{html2}.html}|?{#GET{html2},#GET{html}}})]
+						<INCLURE{fond=content/#GET{content},env} />
 					</section>
 				</div>
 				<aside class="aside secondary" id="aside">
-					<INCLURE{fond=aside/#ENV{type-page},env} />
+					[(#SET{aside,#CHEMIN{aside/#GET{html2}.html}|?{#GET{html2},#GET{html}}})]
+					<INCLURE{fond=aside/#GET{aside},env} />
 				</aside>
 				<aside class="extra secondary" id="extra">
-					<INCLURE{fond=extra/#ENV{type-page},env} />
+					[(#SET{extra,#CHEMIN{extra/#GET{html2}.html}|?{#GET{html2},#GET{html}}})]
+					<INCLURE{fond=extra/#GET{extra},env} />
 				</aside>
 			</div>
 		</section>
