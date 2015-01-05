@@ -3,14 +3,12 @@
 #SET{premiere, #GET{bornes}|reset}
 #SET{derniere, #GET{bornes}|end}
 #SET{pages,#GET{premiere}|range{#GET{derniere}}}
+#SET{numero_botones,#GET{pages}|count|plus{3}}
+
 <B_pages>
-	[
+	<div class="pagination ui buttons fluid #GET{numero_botones}">
 
-	(#SET{item, #ENV{page_courante}|moins{2}|mult{#ENV{pas}} })
-
-	]
-	<div class="pagination ui buttons">
-
+		[(#SET{item, #ENV{page_courante}|moins{2}|mult{#ENV{pas}} })]
 		[(#ENV{page_courante}|<={1}|oui)
 			<div class="ui button disabled"><i class="chevron left icon"></i></div>
 		]
@@ -33,10 +31,7 @@
 		<div class="ui button">...</div>]
 		
 		<BOUCLE_pages(POUR){tableau #GET{pages}}>
-			[
-				(#SET{item, #VALEUR|moins{1}|mult{#ENV{pas}} })
-			]
-
+			[(#SET{item, #VALEUR|moins{1}|mult{#ENV{pas}} })]
 			[(#VALEUR|=={#ENV{page_courante}}|oui)
 				<div class="ui button active">#GET{item}</div>
 			]
@@ -76,7 +71,7 @@
 		[(#ENV{nombre_pages}|moins{1}|mult{#ENV{pas}}|<{1000}|oui)
 			[(#SET{item, #ENV{page_courante}|mult{#ENV{pas}} })]
 			[(#ENV{page_courante}|=={0}|oui)
-				<div class="all ui button active"><:lien_tout_afficher:></div>
+				<div class="all ui button active">Todo</div>
 			]
 			[(#ENV{page_courante}|=={0}|non)
 				<a class="ui button"
@@ -84,7 +79,7 @@
 						|parametre_url{#ENV{debut},-1}
 						|ancre_url{#ENV{ancre}})]"
 					rel='nofollow'
-					><:lien_tout_afficher:></a>
+					>Todo</a>
 			]
 		]
 	</div>
