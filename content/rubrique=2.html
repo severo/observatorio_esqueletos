@@ -1,0 +1,76 @@
+<BOUCLE_content(RUBRIQUES){id_rubrique}>
+<section>
+
+	<header class="cartouche">
+		[(#LOGO_RUBRIQUE|image_reduire{200,200})]
+		<h1 class="#EDIT{titre}">#TITRE</h1>
+	</header>
+
+	<div class="main">
+		[<div class="#EDIT{texte} chapo">(#TEXTE|adaptive_images)</div>]
+
+		<BOUCLE_denunciar(ARTICLES){id_article=9}>
+			<div class="ui segment inverted orange">
+				<div class="ui icon header center aligned">
+					<a href="#URL_ARTICLE">
+						<i class="announcement icon"></i>
+						<div class="content #EDIT{titre}">
+							#TITRE
+						</div>
+					</a>
+				</div>
+
+				<div class="content #EDIT{texte}">
+					#INTRODUCTION
+				</div>
+			</div>
+		</BOUCLE_denunciar>
+
+		<div class="ui two doubling cards">
+
+			<BOUCLE_foro(ARTICLES){id_article=8}>
+				<div class="card">
+					<div class="ui icon header center aligned">
+						<a href="#URL_ARTICLE">
+							<i class="comments icon"></i>
+							<div class="content #EDIT{titre}">
+								#TITRE
+							</div>
+						</a>
+					</div>
+
+					<div class="content #EDIT{texte}">
+						#INTRODUCTION
+					</div>
+				</div>
+			</BOUCLE_foro>
+
+			<BOUCLE_principios(ARTICLES){id_article=6}>
+				<div class="card">
+					<div class="ui icon header center aligned">
+						<a href="#URL_ARTICLE">
+							<i class="legal icon"></i>
+							<div class="content #EDIT{titre}">
+								#TITRE
+							</div>
+						</a>
+					</div>
+
+					<div class="content #EDIT{texte}">
+						#INTRODUCTION
+					</div>
+				</div>
+			</BOUCLE_principios>
+
+		</div>
+
+		<INCLURE{fond=inclure/menu/rubrique-eventos,id_rubrique=5} />
+
+	</div>
+
+	<footer>
+		[<div class="notes"><h2><:info_notes:></h2>(#NOTES)</div>]
+	</footer>
+
+</section>
+</BOUCLE_content>
