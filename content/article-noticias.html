@@ -14,7 +14,7 @@
 				<div class="item"><time pubdate="pubdate" datetime="[(#DATE|date_iso)]"><i class="icon calendar"></i>[(#DATE|nom_jour) ][(#DATE|affdate)]</time></div>
 
 				<BOUCLE_nb_commentaires(FORUMS) {id_article}{plat} />[(#TOTAL_BOUCLE|oui)
-				<div class="item"><a[ href="(#REM|ancre_url{comments})"] [title="(#TOTAL_BOUCLE|singulier_ou_pluriel{zcore:info_1_commentaire,zcore:info_nb_commentaires}|attribut_html)"]>[<i class="icon-comment"></i> (#TOTAL_BOUCLE|singulier_ou_pluriel{zcore:info_1_commentaire,zcore:info_nb_commentaires})]</a></div>
+				<div class="item"><a[ href="(#REM|ancre_url{comments})"] [title="(#TOTAL_BOUCLE|singulier_ou_pluriel{zcore:info_1_commentaire,zcore:info_nb_commentaires}|attribut_html)"]>[<i class="icon comments"></i> (#TOTAL_BOUCLE|singulier_ou_pluriel{zcore:info_1_commentaire,zcore:info_nb_commentaires})]</a></div>
 				]<//B_nb_commentaires>
 			</div>
 			<div class=clearfix"></div>
