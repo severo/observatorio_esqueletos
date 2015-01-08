@@ -1,0 +1,29 @@
+[(#REM)
+
+	Formulaire d'identification sur le forum
+	Si la session est authentifiee, on propose la deconnexion
+	Si la session n'est pas authentifiee, on presente un formulaire nom/email
+	Pour les forums sur abonnement, un squelette specifique presente les regles
+]
+<fieldset class="ui form segment qui[ (#SESSION{auth}|?{session_qui,saisie_qui})]">
+<legend class="ui ribbon label"><:forum:forum_qui_etes_vous:></legend>
+[(#SESSION{auth}|oui)
+	[<p class='explication'><:forum:forum_votre_nom:>: <strong>(#SESSION{nom}|typo)</strong> <div class="details ui red button"><a href="#URL_LOGOUT" rel="nofollow"><:icone_deconnecter:></a></div></p>]
+	
+]
+[(#SESSION{auth}|non)
+		<li class='field editer saisie_session_nom ui labeled input'>
+			<label for="session_nom" class="ui label"><i class="icon user"></i></label>
+			<input type="text" class="text" name="session_nom" id="session_nom" value="[(#SESSION**{nom}|sinon{#SESSION**{session_nom}}|entites_html)]" size="40" autocapitalize="off" autocorrect="off" placeholder="<:forum:forum_votre_nom:>" />
+			[(#CONFIG{accepter_inscriptions}|=={oui}|?{' '})
+			<span class="details"><a href="[(#URL_PAGE{login}|parametre_url{url,#SELF})]" rel="nofollow"><:lien_connecter:></a></span>
+			]
+		</li>
+		<li class='field editer saisie_session_email ui labeled input'>
+			<label for="session_email" class="ui label"><i class="icon mail"></i></label>
+			<input type="[(#HTML5|?{email,text})]" class="text email" name="session_email" id="session_email" value="[(#SESSION**{email}|sinon{#SESSION**{session_email}}|entites_html)]" size="40" autocapitalize="off" autocorrect="off" placeholder="<:forum:forum_votre_email:>"/>
+		</li>
+	</ul>
+]
+</fieldset>
+
