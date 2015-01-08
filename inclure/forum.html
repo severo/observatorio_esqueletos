@@ -2,32 +2,32 @@
 la premiere fois qu'un message est poste (cf. inc/invalideur). ]
 [(#PARAMETRES_FORUM|?{''})]
 <a href="#forum" name="forum" id="forum"></a>
-<div class="comments comments-thread" id="comments">
+<div class="ui comments comments-thread" id="comments">
 	[(#REM) Nombre total de messages ]
 	<BOUCLE_decompte(FORUMS) {id_rubrique ?}{id_article ?}{id_breve ?}{id_syndic ?}{objet ?}{id_objet ?} {plat} />[<h2 class="h2">(#TOTAL_BOUCLE|>{0}|?{#TOTAL_BOUCLE,''})
 	[(#TOTAL_BOUCLE|=={1}|?{<:message:>,<:messages_forum:>})]</h2>]<//B_decompte>
 
 	[(#REM) Messages du forum ]
 	<B_forums>
-	<ul class="comments-items">
 
 		<BOUCLE_forums(FORUMS) {id_rubrique ?}{id_article ?}{id_breve ?}{id_syndic ?}{objet ?}{id_objet ?} {par date}>
 
-		<li class="comment-item[ (#COMPTEUR_BOUCLE|alterner{'odd','even'})][ (#COMPTEUR_BOUCLE|=={1}|oui)first][ (#EXPOSE)]">
-			<div class="comment comment-message">
-				<div class="comment-meta">
-					[(#LOGO_AUTEUR|image_reduire{64,64})]
+		<div class="comment comment-item[ (#COMPTEUR_BOUCLE|alterner{'odd','even'})][ (#COMPTEUR_BOUCLE|=={1}|oui)first][ (#EXPOSE)]">
+				<a class="avatar">[(#LOGO_AUTEUR|image_reduire{64})]</a>
+				<div class="comment-content content">
 					<a href="#forum#ID_FORUM" title="#ID_FORUM" class="ancre permalink comment-number">#</a>
-					<strong class="#EDIT{titre} comment-titre"><a href="#forum#ID_FORUM" name="forum#ID_FORUM" id="forum#ID_FORUM">#TITRE</a></strong>
-					[(#DATE|oui)<abbr class="date"[ title="(#DATE|date_iso)"]>
-						[(#SET{date,[(#DATE|affdate_jourcourt)]})]
-						[(#SET{heure,[(#DATE|heures)][:(#DATE|minutes)]})]
-						<:zcore:date_forum{date=#GET{date},heure=#GET{heure}}:></abbr>]
-					[<span class="comment-author vcard"><span class="sep">,</span> <:par_auteur:> <strong class="fn n #EDIT{qui}">(#NOM)</strong></span>]
-				</div>
-				<div class="comment-content">
-					[<div class="#EDIT{texte} comment-texte">(#TEXTE|lignes_longues)</div>]
-					[<div class="comment-notes">(#NOTES|safehtml|lignes_longues)</div>]
+					<strong class="#EDIT{titre} comment-titre"><a href="#forum#ID_FORUM" name="forum#ID_FORUM" id="forum#ID_FORUM">#TITRE</a></strong>[
+					<span class="comment-author vcard author"><span class="sep">,</span> <:par_auteur:> <strong class="fn n #EDIT{qui}">(#NOM)</strong></span>]
+					<div class="comment-meta metadata">
+						[(#DATE|oui)<abbr class="date"[ title="(#DATE|date_iso)"]>
+							[(#SET{date,[(#DATE|affdate_jourcourt)]})]
+							[(#SET{heure,[(#DATE|heures)][:(#DATE|minutes)]})]
+							<:zcore:date_forum{date=#GET{date},heure=#GET{heure}}:></abbr>]
+					</div>
+					<div class="text">
+						[<div class="#EDIT{texte} comment-texte">(#TEXTE|lignes_longues)</div>]
+						[<div class="comment-notes">(#NOTES|safehtml|lignes_longues)</div>]
+					</div>
 					[<p class="#EDIT{hyperlien} comment-external-link"><:voir_en_ligne:> : <a href="(#URL_SITE)" class="spip_out">[(#NOM_SITE|sinon{[(#URL_SITE|couper{80})]})]</a></p>]
 					<BOUCLE_doc(DOCUMENTS){id_forum}>
 					[(#EXTENSION|match{'^(gif|jpg|png)$'}|?{
@@ -36,32 +36,36 @@ la premiere fois qu'un message est poste (cf. inc/invalideur). ]
 						[(#LOGO_DOCUMENT|#URL_DOCUMENT)]
 					})]
 					</BOUCLE_doc>
+					<div class="actions">
+						[<a class="comment-reply reply" href="(#PARAMETRES_FORUM|url_reponse_forum)" rel="noindex nofollow"><i class="reply icon"></i><:forum:repondre_message:></a>]
+						<div class="ui mini input left icon"><i class="share alternate icon"></i><input value="#URL_PAGE#forum#ID_FORUM" type="url" readonly></div>
 
-					[<p class="comment-reply"><a href="(#PARAMETRES_FORUM|url_reponse_forum)" rel="noindex nofollow"><:forum:repondre_message:></a></p>]
+
+					</div>
+
 				</div>
-			</div>
 
 			<B_forums_fils>
-			<ul class="comments-items">
+			<div class="comments-items comments">
 				<BOUCLE_forums_fils(FORUMS) {id_parent} {par date}>
 
-				<li class="comment-item[ (#COMPTEUR_BOUCLE|alterner{'odd','even'})][ (#COMPTEUR_BOUCLE|=={1}|oui)first][ (#EXPOSE)]">
-					<div class="comment comment-message">
-						<div class="comment-meta">
-							[(#LOGO_AUTEUR|image_reduire{64})]
-							<a href="#forum#ID_FORUM" title="#ID_FORUM" class="ancre permalink comment-number">#</a>
-							<strong class="#EDIT{titre} comment-titre"><a href="#forum#ID_FORUM" name="forum#ID_FORUM" id="forum#ID_FORUM">#TITRE</a></strong>
-							[(#DATE|oui)<abbr class="date"[ title="(#DATE|date_iso)"]>
+				<div id="forum#ID_FORUM" class="comment comment-item[ (#COMPTEUR_BOUCLE|alterner{'odd','even'})][ (#COMPTEUR_BOUCLE|=={1}|oui)first][ (#EXPOSE)]">
+						<a class="avatar">[(#LOGO_AUTEUR|image_reduire{64})]</a>
+						<div class="comment-content content">
+							<strong class="#EDIT{titre} comment-titre"><a href="#forum#ID_FORUM">#TITRE</a></strong>
+							[<span class="comment-author vcard author"><strong class="fn n #EDIT{qui}">(#NOM)</strong></span>]
+							<div class="comment-meta metadata">
+								[(#DATE|oui)<abbr class="date"[ title="(#DATE|date_iso)"]>
 								[(#SET{date,[(#DATE|affdate_jourcourt)]})]
 								[(#SET{heure,[(#DATE|heures)][:(#DATE|minutes)]})]
 								<:zcore:date_forum{date=#GET{date},heure=#GET{heure}}:></abbr>]
-							[<span class="comment-author vcard"><span class="sep">,</span> <:par_auteur:> <strong class="fn n #EDIT{qui}">(#NOM)</strong></span>]
-						</div>
-						<div class="comment-content">
-							[<div class="#EDIT{texte} comment-texte">(#TEXTE|lignes_longues)</div>]
-							[<div class="comment-notes">(#NOTES|safehtml|lignes_longues)</div>]
+							</div>
+							<div class="text">
+								
+								[<div class="#EDIT{texte} comment-texte">(#TEXTE|lignes_longues)</div>]
+								[<div class="comment-notes">(#NOTES|safehtml|lignes_longues)</div>]
+							</div>
 							[<p class="#EDIT{hyperlien} comment-external-link"><:voir_en_ligne:> : <a href="(#URL_SITE)" class="spip_out">[(#NOM_SITE|sinon{[(#URL_SITE|couper{80})]})]</a></p>]
-
 							<BOUCLE_doc2(DOCUMENTS){id_forum}>
 							[(#EXTENSION|match{'^(gif|jpg|png)$'}|?{
 								[(#EMBED_DOCUMENT|image_reduire{300})]
@@ -69,23 +73,24 @@ la premiere fois qu'un message est poste (cf. inc/invalideur). ]
 								[(#LOGO_DOCUMENT|#URL_DOCUMENT)]
 							})]
 							</BOUCLE_doc2>
-
-							[<p class="comment-reply"><a href="(#PARAMETRES_FORUM|url_reponse_forum)" rel="noindex nofollow"><:forum:repondre_message:></a></p>]
-						</div>
+							<div class="actions">
+								[<a class="comment-reply reply" href="(#PARAMETRES_FORUM|url_reponse_forum)" rel="noindex nofollow"><i class="reply icon"></i><:forum:repondre_message:></a>]
+								<a href="#forum#ID_FORUM" title="#ID_FORUM" class="ancre permalink comment-number"><i class="share alternate icon"></i>compartir</a>
+							</div>
 					</div>
 
 					<BOUCLE_forums_boucle(boucle_forums_fils)></BOUCLE_forums_boucle>
 
-				</li>
+				</div>
 
 				</BOUCLE_forums_fils>
-			</ul>
+			</div>
 			</B_forums_fils>
 
-		</li>
+		</div>
 		</BOUCLE_forums>
 
-	</ul>
 	</B_forums>
 </div>
-[<p class="repondre comment-reply"><i class="comment icon"></i><a href="(#ENV{repondre_url})" rel="noindex nofollow">#ENV{repondre_titre}</a></p>]
+[<div class="ui blue labeled submit icon button repondre comment-reply"><i class="edit icon"></i><a href="(#ENV{repondre_url})" rel="noindex nofollow">#ENV{repondre_titre}</a></div>]
+<div class="ui divider"></div>
