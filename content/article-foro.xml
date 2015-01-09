@@ -1,0 +1,6 @@
+<composition>
+	<nom>Foro</nom>
+	<description>Para el artículo (página única) de foro.</description>
+	<icon>images/objet-liste-contenus-dates</icon>
+	<branche type="article" composition="foro" />
+</composition>

@@ -1,0 +1,30 @@
+<BOUCLE_tema(FORUMS){id_forum}{0,1}>
+<a class="ui card" href="#URL_FORUM" title="Ver el tema de discusión: #TITRE">
+	<div class="content">
+		<div class="header #EDIT{titre}">#TITRE</div>
+		<div class="meta">
+			<span class="date">[(#DATE|oui)<abbr class="date"[ title="(#DATE|date_iso)"]>
+							[(#SET{date,[(#DATE|affdate_jourcourt)]})]
+							[(#SET{heure,[(#DATE|heures)][:(#DATE|minutes)]})]
+							<:zcore:date_forum{date=#GET{date},heure=#GET{heure}}:></abbr>]</span>
+		</div>
+		<div class="description">#INTRODUCTION</div>
+	</div>
+	<div class="extra content">
+		<span class="comments">
+		<BOUCLE_forums_fils(FORUMS) {id_parent} />
+			<span><i class="comments icon"></i>#TOTAL_BOUCLE comentarios</span>
+		</B_forums_fils>
+			<i class="red warning sign icon"></i>Sin respuesta
+		<//B_forums_fils>
+		</span>
+	</div>
+	<div class="extra content">
+		<span class="right floated author">
+			<span class="ui avatar image">[(#LOGO_AUTEUR|image_reduire{64})]</span>
+			<span class="fn n #EDIT{qui}">#NOM</span>
+		</span>
+	</div>
+</a>
+</BOUCLE_tema>
+

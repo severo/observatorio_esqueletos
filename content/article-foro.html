@@ -1,0 +1,39 @@
+<BOUCLE_content(ARTICLES){id_article}>
+
+<article>
+	<header class="cartouche">
+		<h1 class="ui icon header center aligned">
+			<i class="comments icon"></i>
+			<div class="content #EDIT{titre}">
+				#TITRE
+				<div class="sub header">#INTRODUCTION</div>
+			</div>
+		</h1>
+
+	</header>
+
+	<div class="#EDIT{texte} texte surlignable column">#TEXTE</div>
+
+	<div class="ui two column stackable middle aligned grid segment">
+		<div class="column center aligned">
+			[<div class="ui blue labeled submit icon button repondre comment-reply"><i class="edit icon"></i><a href="(#PARAMETRES_FORUM|url_reponse_forum)" rel="noindex nofollow">Nuevo tema de discusión</a></div>]
+		</div>
+		<div class="ui vertical divider">O</div>
+		<div class="column center aligned">
+			<form class="item" action="./" method="get">
+				<input type="hidden" name="page" value="recherche" />
+				<div class="ui icon input"><input class="prompt" name="recherche" placeholder="Buscar…" type="text"><i class="icon search"></i></div>
+				<button class="ui grey button offscreen">ok</button>
+			</form>
+		</div>
+	</div>
+
+	<B_temas>
+	<div class="ui two doubling cards">
+		<BOUCLE_temas(FORUMS) {id_article}{plat}>
+			#INCLURE{fond=inclure/resume/tema_foro,id_forum}
+		</BOUCLE_temas>
+	</div>
+	</B_temas>
+</article>
+</BOUCLE_content>
