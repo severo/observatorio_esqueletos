@@ -1,23 +1,56 @@
 <section>
-	<header class="cartouche hide">
-		<h1>#NOM_SITE_SPIP</h1>
-	</header>
-
 	<section id="noticias">
-		<h2 class="h2">
-			<a href="#URL_RUBRIQUE{3}">Noticias</a>
+		<h2 class="h2 ui dividing header">
+			<i class="quote left icon red"></i>
+			<div class="content">
+				<a href="#URL_RUBRIQUE{3}">Últimas noticias</a>
+			</div>
 		</h2>
+		<div class="liste actualites">
+			<INCLURE{fond=liste/articles-resume,id_rubrique=3,env,ajax,par=date,nb=3} />
+		</div>
 	</section>
+
+	<div class="ui horizontal divider"><i class="calendar icon"></i></div>
 
 	<section id="agenda">
-		<h2 class="h2">
-			<a href="#URL_RUBRIQUE{5}">Agenda Antiracista</a>
+		<h2 class="h2 ui dividing header">
+			<i class="calendar icon red"></i>
+			<div class="content">
+				<a href="#URL_RUBRIQUE{5}">Agenda Antiracista</a>
+			</div>
 		</h2>
+		<div class="liste actualites">
+			<INCLURE{fond=liste/articles-eventos-resume,id_rubrique=5,env,ajax,par=date,nb=3} />
+		</div>
 	</section>
 
+	<div class="ui horizontal divider"><i class="book icon"></i></div>
+
 	<section id="publicaciones">
-		<h2 class="h2">
-			<a href="#URL_RUBRIQUE{4}">Publicaciones</a>
+		<h2 class="h2 ui dividing header">
+			<i class="book icon red"></i>
+			<div class="content">
+				<a href="#URL_RUBRIQUE{4}">Publicaciones</a>
+			</div>
 		</h2>
 	</section>
+	
+	<div class="ui horizontal divider"><i class="comments icon"></i></div>
+
+	<B_forums_liens>
+	<div class="liste forums">
+		<h2 class="h2 ui dividing header">
+			<i class="comments icon red"></i>
+			<div class="content">
+				<:derniers_commentaires:>
+			</div>
+		</h2>
+		<ul class="liste-items">
+			<BOUCLE_forums_liens(FORUMS?) {plat} {par date}{inverse} {0,8}>
+			<li class="item">[<abbr class="published" title="[(#DATE|date_iso)]">(#DATE|affdate_jourcourt)</abbr><span class="sep"> &ndash; </span>]<a [href="(#ID_THREAD|generer_url_entite{discusion})"][ title="(#TITRE|attribut_html|couper{80})"]>[(#TEXTE|couper{80})]</a></li>
+			</BOUCLE_forums_liens>
+		</ul>
+	</div>
+	</B_forums_liens>
 </section>
