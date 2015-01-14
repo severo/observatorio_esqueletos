@@ -4,13 +4,13 @@ la premiere fois qu'un message est poste (cf. inc/invalideur). ]
 <a href="#forum" name="forum" id="forum"></a>
 <div class="ui comments comments-thread" id="comments">
 	[(#REM) Nombre total de messages ]
-	<BOUCLE_decompte(FORUMS) {id_rubrique ?}{id_article ?}{id_breve ?}{id_syndic ?}{objet ?}{id_objet ?} {plat} />[<h2 class="h2">(#TOTAL_BOUCLE|>{0}|?{#TOTAL_BOUCLE,''})
+	<BOUCLE_decompte(FORUMS) {id_rubrique ?}{id_article ?}{id_breve ?}{id_syndic ?}{objet ?}{id_objet ?}{id_thread ?} {plat} />[<h2 class="h2">(#TOTAL_BOUCLE|>{0}|?{#TOTAL_BOUCLE,''})
 	[(#TOTAL_BOUCLE|=={1}|?{<:message:>,<:messages_forum:>})]</h2>]<//B_decompte>
 
 	[(#REM) Messages du forum ]
 	<B_forums>
 
-		<BOUCLE_forums(FORUMS) {id_rubrique ?}{id_article ?}{id_breve ?}{id_syndic ?}{objet ?}{id_objet ?} {par date}>
+		<BOUCLE_forums(FORUMS) {id_rubrique ?}{id_article ?}{id_breve ?}{id_syndic ?}{objet ?}{id_objet ?}{id_thread ?} {par date}>
 
 		<div class="comment comment-item[ (#COMPTEUR_BOUCLE|alterner{'odd','even'})][ (#COMPTEUR_BOUCLE|=={1}|oui)first][ (#EXPOSE)]">
 				<a class="avatar">[(#LOGO_AUTEUR|image_reduire{64})]</a>
@@ -75,7 +75,7 @@ la premiere fois qu'un message est poste (cf. inc/invalideur). ]
 							</BOUCLE_doc2>
 							<div class="actions">
 								[<a class="comment-reply reply" href="(#PARAMETRES_FORUM|url_reponse_forum)" rel="noindex nofollow"><i class="reply icon"></i><:forum:repondre_message:></a>]
-								<a href="#forum#ID_FORUM" title="#ID_FORUM" class="ancre permalink comment-number"><i class="share alternate icon"></i>compartir</a>
+								<div class="ui mini input left icon"><i class="share alternate icon"></i><input value="#URL_PAGE#forum#ID_FORUM" type="url" readonly></div>
 							</div>
 					</div>
 

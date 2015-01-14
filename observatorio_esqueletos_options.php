@@ -12,10 +12,10 @@ if (!isset($GLOBALS['z_blocs'])){
 
 define('_ZENGARDEN_FILTRE_THEMES','observatorio');
 
-function url_foro_observatorio($id_forum) {
+function generer_url_discusion_dist($id_forum) {
 	if ($id_forum = intval($id_forum)) {
 		$type="forum";
-		$url = "?page=forum&id_forum=" . $id_forum;
+		$url = "?page=discusion&id_forum=" . $id_forum;
 
 		return _DIR_RACINE . $url;
 	}
