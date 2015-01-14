@@ -28,12 +28,41 @@
 		</div>
 	</div>
 
-	<B_temas>
-	<div class="ui two doubling cards">
-		<BOUCLE_temas(FORUMS) {id_article}{plat}>
-			#INCLURE{fond=inclure/resume/tema_foro,id_forum}
-		</BOUCLE_temas>
+	<div class="ui two column relaxed stackable grid">
+		<div class="column">
+		#SET{sin_respuestas,0}
+		<B_temas_sin_respuesta>
+			 <div class="ui dividing header">
+				<div class="content">
+					Nuevos temas sin respuesta
+					[<div class="sub header">(#GET{sin_respuestas}) temas</div>]
+				</div>
+			</div>
+		<BOUCLE_temas_sin_respuesta(FORUMS){id_article}{id_parent=0}{!par date}>
+			<BOUCLE_hijos_sin_respuestas(FORUMS){id_article}{id_parent=#_temas_sin_respuesta:ID_FORUM}>
+			</BOUCLE_hijos_sin_respuestas>
+				#SET{sin_respuestas,#GET{sin_respuestas}|plus{1}}
+				#INCLURE{fond=inclure/resume/tema_foro,id_forum}
+			<//B_hijos_sin_respuestas>
+		</BOUCLE_temas_sin_respuesta>
+		</div>
+		<div class="column">
+		#SET{con_respuestas,0}
+		<B_temas_con_respuesta>
+			 <div class="ui dividing header">
+				<div class="content">
+					Últimas discusiones
+					[<div class="sub header">(#GET{con_respuestas}) discusiones</div>]
+				</div>
+			</div>
+		<BOUCLE_temas_con_respuesta(FORUMS){id_article}{id_parent=0}{!par date}>
+			<BOUCLE_hijos_con_respuestas(FORUMS){id_article}{id_parent=#_temas_con_respuesta:ID_FORUM}>
+			</BOUCLE_hijos_con_respuestas>
+				#SET{con_respuestas,#GET{con_respuestas}|plus{1}}
+				#INCLURE{fond=inclure/resume/tema_foro,id_forum}
+			</B_hijos_con_respuestas>
+		</BOUCLE_temas_con_respuesta>
+		</div>
 	</div>
-	</B_temas>
 </article>
 </BOUCLE_content>
